@@ -1,2 +1,2 @@
 # Maratona
-ACM-ICPC Library 
+This is a free ACM-ICPC Library
