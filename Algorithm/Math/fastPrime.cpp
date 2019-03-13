@@ -6,7 +6,7 @@ vector<int> fastPrime(int lim) {
         if(sieve[i]){
             resp.push_back(i);
             if(i*1ll*i>lim) continue;
-            for(int j=i*i; j<lim; j+=i){
+            for(int j=i*i; j<lim; j+=i+i){
                sieve[j]=0;
             }
          }
