@@ -1,3 +1,4 @@
+// Euler's totient
 // Number of coprimes with x smaller than n
 // O(sqrt(n))
 
