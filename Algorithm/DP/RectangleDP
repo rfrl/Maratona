@@ -1,0 +1,21 @@
+// O(N^5)
+
+int dp[ms][ms][ms][ms];
+bool seen[ms][ms][ms][ms];
+ 
+int solve(int x1, int y1, int x2, int y2){
+  if(x1==x2 && y1==y2) return (ele[x1][y1]=='#'); // Base
+ 
+  if(seen[x1][y1][x2][y2]) return dp[x1][y1][x2][y2];
+  seen[x1][y1][x2][y2] = 1;
+  int ans = max(x2-x1+1, y2-y1+1); // Maybe Prefix sum
+ 
+  for(int l = x1; l<x2; l++){
+    ans = min(ans, solve(x1, y1, l, y2) + solve(l+1, y1, x2, y2));
+  }
+  for(int r = y1; r<y2; r++){
+    ans = min(ans, solve(x1, y1, x2, r) + solve(x1, r+1, x2, y2));
+  }
+  return dp[x1][y1][x2][y2] = ans;
+ 
+}
